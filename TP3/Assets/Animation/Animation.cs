@@ -38,5 +38,6 @@ public class Animation : MonoBehaviour
         {
             animator.SetBool("IsCelebrating", true);
         }
+        else animator.SetBool("IsCelebrating", false);
     }
 }
