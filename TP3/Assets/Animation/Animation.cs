@@ -34,10 +34,19 @@ public class Animation : MonoBehaviour
             animator.SetBool("IsRunning", false);
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            celebrating = true;
+        }
+
         if (celebrating)
         {
             animator.SetBool("IsCelebrating", true);
         }
-        else animator.SetBool("IsCelebrating", false);
+    }
+    public void Stop()
+    {
+        animator.SetBool("IsCelebrating", false);
+        celebrating = false;
     }
 }
