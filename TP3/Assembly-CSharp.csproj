@@ -58,8 +58,7 @@
     <Analyzer Include="C:\Program Files\Unity 2022.2.2f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Animation.cs" />
-    <Compile Include="Assets\PlayerMouseLook.cs" />
+    <Compile Include="Assets\Animation\Animation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

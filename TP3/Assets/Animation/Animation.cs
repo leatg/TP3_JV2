@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Animation : MonoBehaviour
 {
-    
+    bool celebrating { get; set; } = false;
     Animator animator;
     // Start is called before the first frame update
     void Awake()
@@ -32,6 +32,11 @@ public class Animation : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             animator.SetBool("IsRunning", false);
+        }
+
+        if (celebrating)
+        {
+            animator.SetBool("IsCelebrating", true);
         }
     }
 }
