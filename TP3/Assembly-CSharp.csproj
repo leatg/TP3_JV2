@@ -68,6 +68,7 @@
      <None Include="Library\PackageCache\com.unity.timeline@1.7.2\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\Gizmos" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.17\ValidationConfig.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35" />
      <Folder Include="Library\PackageCache\com.unity.performance.profile-analyzer@1.1.1" />
@@ -77,6 +78,7 @@
      <None Include="Library\PackageCache\com.unity.timeline@1.7.2\ValidationExceptions.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\package.json" />
      <Folder Include="Library\PackageCache\com.unity.timeline@1.7.2" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\Tests" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Tests" />
@@ -88,6 +90,7 @@
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime" />
      <Folder Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.2" />
      <None Include="Library\PackageCache\com.unity.performance.profile-analyzer@1.1.1\package.json" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5" />
      <None Include="Library\PackageCache\com.unity.services.core@1.7.0\package.json" />
      <None Include="Library\PackageCache\com.unity.visualscripting@1.8.0\ValidationExceptions.json" />
      <Folder Include="Library\PackageCache\com.unity.settings-manager@2.0.1" />
@@ -102,17 +105,20 @@
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Gizmos" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@1.17.7" />
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\package.json" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\EditorResources\Overlay" />
      <None Include="Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\package.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6" />
      <Folder Include="Library\PackageCache\com.unity.ide.rider@3.0.17" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\ValidationConfig.json" />
+     <None Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Tests" />
      <Folder Include="Library\PackageCache\com.unity.services.core@1.7.0" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_Properties.cginc" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
      <Folder Include="Library\PackageCache\com.unity.cinemachine@2.9.7\Presets" />
+     <Folder Include="Library\PackageCache\com.unity.ai.navigation@1.1.5\EditorResources" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib" />
      <None Include="Library\PackageCache\com.unity.ide.vscode@1.2.5\ValidationExceptions.json" />
      <None Include="Library\PackageCache\com.unity.visualscripting@1.8.0\ValidationConfig.json" />
@@ -778,6 +784,10 @@
       <Project>{74e7af7a-dee2-94c5-a237-27ce41970859}</Project>
       <Name>com.unity.cinemachine.editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.csproj">
+      <Project>{458628f5-a18e-ecf6-9b02-58ad6c23c16f}</Project>
+      <Name>Unity.AI.Navigation</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
       <Project>{512d7a3b-8e59-d3ff-72c6-a6c012ef3cc8}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
@@ -846,6 +856,10 @@
       <Project>{ab536c39-626c-5742-51b4-b56d5a76033f}</Project>
       <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Updater.csproj">
+      <Project>{ce51ac85-0152-28c3-8502-a4a2b7f4e524}</Project>
+      <Name>Unity.AI.Navigation.Updater</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.Editor.csproj">
       <Project>{8619801e-5e4f-6e56-97dd-8aab60b9134a}</Project>
       <Name>Unity.VisualScripting.State.Editor</Name>
@@ -862,6 +876,10 @@
       <Project>{075b1664-35d1-51b6-9085-31aaf5cdd83d}</Project>
       <Name>Unity.Services.Core.Analytics</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.csproj">
+      <Project>{eef39c6f-785f-26dd-d85b-c16f7964a71a}</Project>
+      <Name>Unity.AI.Navigation.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{abb34d40-caf2-faaf-8cd7-637b4bb46b45}</Project>
       <Name>Unity.VisualScripting.State</Name>
@@ -873,6 +891,10 @@
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
       <Project>{8e4f073d-3212-a46d-8ffb-d7eb9942a803}</Project>
       <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
+      <Project>{3bd855a4-f06c-a5e6-14be-f3c82cff0170}</Project>
+      <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
