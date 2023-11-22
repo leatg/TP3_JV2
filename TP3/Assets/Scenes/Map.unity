@@ -9486,6 +9486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point
       objectReference: {fileID: 0}
+    - target: {fileID: 1835722610510710273, guid: 6486f9a7368782b4794c4525b1cb25b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2237464581876632320, guid: 6486f9a7368782b4794c4525b1cb25b9, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -9518,7 +9522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1043903087
 Transform:
   m_ObjectHideFlags: 0
@@ -9747,7 +9751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_StartPoint: {x: 1.5784571, y: 0.67406154, z: -0.062862396}
-  m_EndPoint: {x: -2.6272426, y: -0.66929674, z: 0.5784588}
+  m_EndPoint: {x: -2.6272426, y: -0.66929674, z: -1.0240383}
   m_Width: 0
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -12717,7 +12721,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-87816
+  m_Name: pb_Mesh-1668
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -13367,7 +13371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1484585952
 Transform:
   m_ObjectHideFlags: 0
