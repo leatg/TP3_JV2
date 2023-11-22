@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ECM.Components;
 using UnityEngine;
 
 public class ContactWithAgent : MonoBehaviour
@@ -19,11 +20,12 @@ public class ContactWithAgent : MonoBehaviour
 
     private void OnCollisionEnter(Collision thePlayer)
     {
-        if (thePlayer.gameObject.CompareTag("Player"))
-        {
-            scoreManager.Death();
-            timeManager.Death();
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-        }
+        if (!thePlayer.gameObject.CompareTag("Player")) return;
+        
+        thePlayer.gameObject.GetComponent<MouseLook>()._isCursorLocked = false;
+        
+        scoreManager.Death();
+        timeManager.Death();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

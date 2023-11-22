@@ -44,12 +44,12 @@ public class InterrupteurObj : MonoBehaviour
     public void Interact()
     {
         //add point
-        scoreManager.getScore = 1;
+        scoreManager.GetScore = 1;
         //change position
         int newPosIndex;
         do
         {
-            newPosIndex = Random.Range(0, 19);
+            newPosIndex = Random.Range(0, _positionArray.Length);
         } while (_positionArray[newPosIndex] == gameObject.transform.position);
         gameObject.transform.position = _positionArray[newPosIndex];
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ECM.Components;
 using TMPro;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetInt("Points",score);
     }
 
-    public int getScore
+    public int GetScore
     {
         get => score;
         set

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ECM.Components
 {
@@ -56,7 +57,7 @@ namespace ECM.Components
 
         #region FIELDS
 
-        protected bool _isCursorLocked = true;
+        public bool _isCursorLocked = true;
 
         protected Quaternion characterTargetRotation;
         protected Quaternion cameraTargetRotation;
@@ -280,7 +281,6 @@ namespace ECM.Components
         /// NOTE: If you override this, it is important to call the parent class' version of method
         /// eg: base.OnValidate, in the derived class method implementation, in order to fully validate the class.  
         /// </summary>
-
         public virtual void OnValidate()
         {
             lateralSensitivity = _lateralSensitivity;

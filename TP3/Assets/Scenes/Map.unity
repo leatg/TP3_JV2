@@ -1912,6 +1912,7 @@ GameObject:
   - component: {fileID: 478449688}
   - component: {fileID: 478449687}
   - component: {fileID: 478449694}
+  - component: {fileID: 478449695}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2101,6 +2102,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 2044757631}
   isUpdatingTargetPosition: 1
+--- !u!114 &478449695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478449686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e18770f6200a054b82720a51c4cada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 709995150}
 --- !u!1 &528113755
 GameObject:
   m_ObjectHideFlags: 0
@@ -17562,7 +17576,7 @@ GameObject:
   - component: {fileID: 2044757633}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17624,6 +17638,7 @@ MonoBehaviour:
   _clampPitch: 1
   _minPitchAngle: -90
   _maxPitchAngle: 90
+  _isCursorLocked: 1
 --- !u!114 &2044757627
 MonoBehaviour:
   m_ObjectHideFlags: 0
