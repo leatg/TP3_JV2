@@ -97,7 +97,6 @@ public class Patrol : TaskBT
                 return TaskState.Success;
             }
         }
-
         Agent.destination = currentDestination;
 
         // Debug.Log($"Patrol: Current position: {Agent.transform.position}, Destination: {currentDestination}");
