@@ -419,6 +419,7 @@
 "Assets/Easy Character Movement/Walkthrough/7 - Toggle Gravity Direction/Scripts/MyCharacterController.cs"
 "Assets/Easy Character Movement/Walkthrough/8 - Orient Towards Ground Normals/Scripts/MyCharacterController.cs"
 "Assets/Scripts/Agents/AIBehaviour.cs"
+"Assets/Scripts/Agents/BehaviorTree.cs"
 "Assets/Scripts/Agents/ContactWithAgent.cs"
 "Assets/Scripts/Agents/Node.cs"
 "Assets/Scripts/Agents/Sequence.cs"

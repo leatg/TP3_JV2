@@ -68,8 +68,8 @@
      <Compile Include="Assets\Easy Character Movement\Walkthrough\13 - Over The Shoulder Camera Movement\Scripts\OverShoulderCameraController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\Easy Character Movement\Walkthrough\15 - Ladder Climbing\Scripts\Ladder.cs" />
-     <Compile Include="Assets\Animation\Animation.cs" />
      <Compile Include="Assets\Scripts\HUD\TimerCountDown.cs" />
+     <Compile Include="Assets\Animation\Animation.cs" />
      <Compile Include="Assets\Easy Character Movement\Walkthrough\7 - Toggle Gravity Direction\Scripts\MyCharacterController.cs" />
      <Compile Include="Assets\Easy Character Movement\Examples\Scripts\Components\KinematicMove.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
@@ -142,6 +142,7 @@
      <Compile Include="Assets\Easy Character Movement\Examples\Scripts\Controllers\FPS_CustomController.cs" />
      <Compile Include="Assets\Easy Character Movement\Scripts\@Obsolete\RaycastGroundDetection.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+     <Compile Include="Assets\Scripts\Agents\BehaviorTree.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Prefab" />
      <Folder Include="Assets\Easy Character Movement\Examples" />
