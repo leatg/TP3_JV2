@@ -77,50 +77,87 @@ public class DummyTask : TaskBT
     }
 }
 
-public class Wait : TaskBT
-{
-    private float ElapsedTime { get; set; } = 0;
-    private float SecondsToWait { get; set; } = 0;
+// public class Wait : TaskBT
+// {
+//     private float ElapsedTime { get; set; } = 0;
+//     private float SecondsToWait { get; set; } = 0;
+//
+//     public Wait(float secondsToWait) => SecondsToWait = secondsToWait;
+//
+//     //On tient pour acquis qu'Execute va être appeler à chaque frame
+//     public override TaskState Execute()
+//     {
+//         ElapsedTime += Time.deltaTime;
+//
+//         if (ElapsedTime > SecondsToWait)
+//         {
+//             ElapsedTime = 0;
+//             return TaskState.Success;
+//         }
+//
+//         return TaskState.Running;
+//     }
+// }
 
-    public Wait(float secondsToWait) => SecondsToWait = secondsToWait;
+// public class Patrol : TaskBT
+// {
+//     private Vector3[] Destinations { get; set; }
+//     private NavMeshAgent Agent { get; set; }
+//     private int CurrentDestinationID { get; set; }
+//
+//     public Patrol(Vector3[] destinations, NavMeshAgent agent)
+//     {
+//         Destinations = destinations;
+//         Agent = agent;
+//     }
+//
+//     public override TaskState Execute()
+//     {
+//         Vector3 currentDestination = Destinations[CurrentDestinationID];
+//         Agent.destination = currentDestination;
+//
+//         if (Vector3.Distance(currentDestination, Agent.transform.position) < Agent.stoppingDistance)
+//         {
+//             CurrentDestinationID = (CurrentDestinationID +1) % Destinations.Length;
+//             return TaskState.Success;
+//         }
+//         return TaskState.Running;
+//     }
+// }
+// public class Patrol : TaskBT
+// {
+//     private Vector3[] Destinations { get; set; }
+//     private NavMeshAgent Agent { get; set; }
+//     private int CurrentDestinationID { get; set; }
+//
+//     public Patrol(Vector3[] destinations, NavMeshAgent agent)
+//     {
+//         Destinations = destinations;
+//         Agent = agent;
+//     }
+//
+//     public override TaskState Execute()
+//     {
+//         if (Destinations == null || Destinations.Length == 0)
+//         {
+//             Debug.LogError("Patrol: No destinations specified!");
+//             return TaskState.Failure;
+//         }
+//
+//         Vector3 currentDestination = Destinations[CurrentDestinationID];
+//         Agent.destination = currentDestination;
+//
+//         // Debug.Log($"Patrol: Current position: {Agent.transform.position}, Destination: {currentDestination}");
+//         Vector3 t_agent = Agent.transform.position;
+//         float distance = Vector3.Distance(new Vector3(currentDestination.x,0,currentDestination.z), new Vector3(t_agent.x,0,t_agent.z));
+//         if (distance < (Agent.stoppingDistance))
+//         {
+//             CurrentDestinationID = (CurrentDestinationID + 1) % Destinations.Length;
+//             Debug.Log("Patrol: Reached destination, moving to the next one.");
+//             return TaskState.Success;
+//         }
+//
+//         return TaskState.Running;
+//     }
+// }
 
-    //On tient pour acquis qu'Execute va être appeler à chaque frame
-    public override TaskState Execute()
-    {
-        ElapsedTime += Time.deltaTime;
-
-        if (ElapsedTime > SecondsToWait)
-        {
-            ElapsedTime = 0;
-            return TaskState.Success;
-        }
-
-        return TaskState.Running;
-    }
-}
-
-public class Patrol : TaskBT
-{
-    private Vector3[] Destinations { get; set; }
-    private NavMeshAgent Agent { get; set; }
-    private int CurrentDestinationID { get; set; }
-
-    public Patrol(Vector3[] destinations, NavMeshAgent agent)
-    {
-        Destinations = destinations;
-        Agent = agent;
-    }
-
-    public override TaskState Execute()
-    {
-        Vector3 currentDestination = Destinations[CurrentDestinationID];
-        Agent.destination = currentDestination;
-
-        if (Vector3.Distance(currentDestination, Agent.transform.position) < Agent.stoppingDistance)
-        {
-            CurrentDestinationID = (CurrentDestinationID +1) % Destinations.Length;
-            return TaskState.Success;
-        }
-        return TaskState.Running;
-    }
-}

@@ -17,15 +17,15 @@ public class TestBehaviourTree : MonoBehaviour
     {
         Vector3[] destinations = patrolDestinations.Select(t => t.position).ToArray();
         
-        TaskBT[] tasks0 = new TaskBT[]
+        TaskBT[] tasks0 =
         {
-            new Patrol(destinations, agent),
+            // new Patrol(destinations, agent),
         };
-        TaskBT[] tasks1 = new TaskBT[]
+        TaskBT[] tasks1 =
         {
             new Wait(2)
         };
-        TaskBT[] tasks2 = new TaskBT[]
+        TaskBT[] tasks2 =
         {
             new DummyTask("J'ai attendu 2 secs", TaskState.Success)
         };
@@ -36,27 +36,38 @@ public class TestBehaviourTree : MonoBehaviour
         Node seq1 = new Sequence("seq1", new[] {patrolNode, waitNode, dummyNode });
 
         rootBT = seq1;
-        /*
-        TaskBT[] tasks1 = new TaskBT[]
-        {
-            new DummyTask("A1", TaskState.Failure),
-            new DummyTask("A2", TaskState.Success)
-        };
-        TaskBT[] tasks2 = new TaskBT[]
-        {
-            new DummyTask("B", TaskState.Success)
-        };
-
-        TaskNode tn1 = new TaskNode("TN1", tasks1);
-        TaskNode tn2 = new TaskNode("TN2", tasks2);
-
-        Sequence seq1 = new Sequence("SEQ1", new Node[] {tn1, tn2});
-        rootBT = seq1;
-        */
     }
 
+    // void Update()
+    // {
+    //     // rootBT.Evaluate();
+    //     
+    // }
     void Update()
     {
-        rootBT.Evaluate();
+        // Evaluate the rootBT and store the result
+        NodeState rootState = rootBT.Evaluate();
+
+        // Check if the root state is still running
+        if (rootState != NodeState.Running)
+        {
+            // Log the result or perform any additional actions based on the final state
+            if (rootState == NodeState.Success)
+            {
+                Debug.Log("Behavior tree succeeded!");
+                rootState = rootBT.Evaluate();
+            }
+            else if (rootState == NodeState.Failure)
+            {
+                Debug.Log("Behavior tree failed!");
+            }
+
+            // Add any necessary cleanup or reset logic here
+
+            // Optional: Stop the continuous evaluation (comment out if not needed)
+            enabled = false;
+        }
     }
+
+
 }
