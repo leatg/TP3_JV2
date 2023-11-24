@@ -418,6 +418,7 @@
 "Assets/Easy Character Movement/Walkthrough/6 - Fall Damage/Scripts/MyCharacterController.cs"
 "Assets/Easy Character Movement/Walkthrough/7 - Toggle Gravity Direction/Scripts/MyCharacterController.cs"
 "Assets/Easy Character Movement/Walkthrough/8 - Orient Towards Ground Normals/Scripts/MyCharacterController.cs"
+"Assets/EnemyAnimator.cs"
 "Assets/Scripts/Agents/AIBehaviour.cs"
 "Assets/Scripts/Agents/BehaviorTree.cs"
 "Assets/Scripts/Agents/ContactWithAgent.cs"

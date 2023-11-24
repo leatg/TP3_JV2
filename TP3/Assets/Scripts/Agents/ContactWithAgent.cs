@@ -8,14 +8,14 @@ public class ContactWithAgent : MonoBehaviour
 {
     [SerializeField] private GameObject gameManager;
 
-    private ScoreManager scoreManager;
+    private ScoreManager _scoreManager;
 
-    private TimerCountDown timeManager;
+    private TimerCountDown _timeManager;
     // Start is called before the first frame update
     void Awake()
     {
-        scoreManager = gameManager.GetComponent<ScoreManager>();
-        timeManager = gameManager.GetComponent<TimerCountDown>();
+        _scoreManager = gameManager.GetComponent<ScoreManager>();
+        _timeManager = gameManager.GetComponent<TimerCountDown>();
     }
 
     private void OnCollisionEnter(Collision thePlayer)
@@ -24,8 +24,8 @@ public class ContactWithAgent : MonoBehaviour
         
         thePlayer.gameObject.GetComponent<MouseLook>()._isCursorLocked = false;
         
-        scoreManager.Death();
-        timeManager.Death();
+        _scoreManager.Death();
+        _timeManager.Death();
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
