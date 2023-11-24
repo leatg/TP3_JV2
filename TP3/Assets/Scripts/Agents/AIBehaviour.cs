@@ -10,12 +10,14 @@ public class AIBehaviour : MonoBehaviour
     [SerializeField] float speed;
     private NavMeshAgent _navMeshAgent;
     bool isOnOffMeshLink = false;
+    Animator animator;
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
     private void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         _navMeshAgent.speed = speed;
         StartCoroutine(UpdateTargetPosition());
     }
@@ -26,13 +28,13 @@ public class AIBehaviour : MonoBehaviour
             if (_navMeshAgent.isOnOffMeshLink && !isOnOffMeshLink)
             {
                 isOnOffMeshLink = true;
-                GetComponentInChildren<Animator>().SetBool("IsJumping", true);
+                animator.SetBool("IsJumping", true);
                 Debug.Log("is jumping");
             }
             if(!_navMeshAgent.isOnOffMeshLink && isOnOffMeshLink)
             {
                 isOnOffMeshLink = false;
-                GetComponentInChildren<Animator>().SetBool("IsJumping", false);
+                animator.GetComponentInChildren<Animator>().SetBool("IsJumping", false);
                 Debug.Log("isnt jumping");
             }
             _navMeshAgent.SetDestination(targetTransform.position);

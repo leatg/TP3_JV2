@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Animation : MonoBehaviour
 {
-    bool celebrating { get; set; } = false;
+    bool jumping { get; set; } = false;
     Animator animator;
     // Start is called before the first frame update
     void Awake()
@@ -36,17 +36,17 @@ public class Animation : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            celebrating = true;
+            jumping = true;
         }
 
-        if (celebrating)
+        if (jumping)
         {
-            animator.SetBool("IsCelebrating", true);
+            animator.SetBool("IsJumping", true);
         }
     }
     public void Stop()
     {
-        animator.SetBool("IsCelebrating", false);
-        celebrating = false;
+        animator.SetBool("IsJumping", false);
+        jumping = false;
     }
 }
