@@ -19,4 +19,9 @@ public class EnemyAnimator : MonoBehaviour
     {
         animator.SetBool("IsJumping", isJumping);
     }
+
+    public void IsAttacking(bool isAttacking)
+    {
+        animator.SetBool("IsAttacking",isAttacking);
+    }
 }

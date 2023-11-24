@@ -66,20 +66,26 @@ public class BehaviorTreeTask
 }
 public class Patrol : TaskBT
 {
+    private EnemyAnimator Enemy2Animation { get; set; }
     private Vector3[] Destinations { get; set; }
     private NavMeshAgent Agent { get; set; }
     private int CurrentDestinationID { get; set; }
     private Transform Player { get; set; } // Assuming the player is assigned to this variable
-    private float DetectionDistance { get; set; } = 5f;
-    private float DetectionAngle { get; set; } = 45f;
+    private float DetectionDistance { get; set; } = 6f;
+    private float DetectionAngle { get; set; } = 30f;
     private float DefaultSpeed { get; set; }
     private float IncreasedSpeed { get; set; } = 8f;
     public Patrol(Vector3[] destinations, NavMeshAgent agent, Transform player)
     {
-        Destinations = destinations;
-        Agent = agent;
+        //joueur
         Player = player;
-        DefaultSpeed = agent.speed;
+        // agent
+        Agent = agent;
+        Destinations = destinations;
+        //attaque
+        DefaultSpeed = 2f;
+        //animation
+        Enemy2Animation = Agent.GetComponentInChildren<EnemyAnimator>();
     }
 
     public override TaskState Execute()
@@ -99,13 +105,15 @@ public class Patrol : TaskBT
         if (angleToPlayer < DetectionAngle && directionToPlayer.magnitude < DetectionDistance)
         {
             Debug.Log("Patrol: Player detected in front. Stopping patrol.");
-            Agent.speed = IncreasedSpeed; 
+            Agent.speed = IncreasedSpeed;
+            Enemy2Animation.IsAttacking(true);
             return TaskState.Success;
         }
         else
         {
             if(Agent.speed != DefaultSpeed)
                 Agent.speed = DefaultSpeed;
+            Enemy2Animation.IsAttacking(false);
         }
         Agent.destination = currentDestination;
 
