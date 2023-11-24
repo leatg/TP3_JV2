@@ -8,6 +8,12 @@ using Random = UnityEngine.Random;
 public class InterrupteurObj : MonoBehaviour
 {
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] GameObject Player;
+    Animator animator;
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private Vector3[] _positionArray = 
     {
@@ -45,11 +51,22 @@ public class InterrupteurObj : MonoBehaviour
         //add point
         scoreManager.GetScore = 1;
         //change position
+        
+        animator.SetBool("IsExploding", true);
+    }
+    public void Stop()
+    {
+        Debug.Log("STOP");
         int newPosIndex;
         do
         {
             newPosIndex = Random.Range(0, _positionArray.Length);
         } while (_positionArray[newPosIndex] == gameObject.transform.position);
-        gameObject.transform.position = _positionArray[newPosIndex];
+
+        //gameObject.transform.position = _positionArray[newPosIndex];
+        gameObject.transform.parent.position = _positionArray[newPosIndex];
+        animator.SetBool("IsExploding", false);
+        Player.GetComponentInChildren<Animator>().SetBool("IsCelebrating", true);
+        Debug.Log(Player.GetComponentInChildren<Animator>().GetBool("IsCelebrating"));
     }
 }

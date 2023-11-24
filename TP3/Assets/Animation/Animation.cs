@@ -49,4 +49,8 @@ public class Animation : MonoBehaviour
         animator.SetBool("IsJumping", false);
         jumping = false;
     }
+    public void StopCelebrating()
+    {
+        animator.SetBool("IsCelebrating", false);
+    }
 }
