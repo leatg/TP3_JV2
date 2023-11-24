@@ -10,11 +10,13 @@ public class BehaviorTree : MonoBehaviour
     Transform[] patrolDestinations;
     [SerializeField]
     NavMeshAgent agent;
+   
 
     [SerializeField] private Transform player;
 
     private BehaviorTreeTask behaviorTree;
 
+    private NavMeshAgent _agent;
     void Start()
     {
         Vector3[] destinations = patrolDestinations.Select(t => t.position).ToArray();
@@ -27,6 +29,7 @@ public class BehaviorTree : MonoBehaviour
         };
 
         behaviorTree = new BehaviorTreeTask(tasks);
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
@@ -68,12 +71,15 @@ public class Patrol : TaskBT
     private int CurrentDestinationID { get; set; }
     private Transform Player { get; set; } // Assuming the player is assigned to this variable
     private float DetectionDistance { get; set; } = 5f;
-
+    private float DetectionAngle { get; set; } = 45f;
+    private float DefaultSpeed { get; set; }
+    private float IncreasedSpeed { get; set; } = 8f;
     public Patrol(Vector3[] destinations, NavMeshAgent agent, Transform player)
     {
         Destinations = destinations;
         Agent = agent;
         Player = player;
+        DefaultSpeed = agent.speed;
     }
 
     public override TaskState Execute()
@@ -88,21 +94,25 @@ public class Patrol : TaskBT
 
         // Check if the player is in front of the agent at a distance of DetectionDistance
         Vector3 directionToPlayer = Player.position - Agent.transform.position;
-        RaycastHit hit;
-        if (Physics.Raycast(Agent.transform.position, directionToPlayer.normalized, out hit, DetectionDistance))
+        float angleToPlayer = Vector3.Angle(Agent.transform.forward, directionToPlayer.normalized);
+
+        if (angleToPlayer < DetectionAngle && directionToPlayer.magnitude < DetectionDistance)
         {
-            if (hit.collider.CompareTag("Player"))
-            {
-                Debug.Log("Patrol: Player detected in front. Stopping patrol.");
-                return TaskState.Success;
-            }
+            Debug.Log("Patrol: Player detected in front. Stopping patrol.");
+            Agent.speed = IncreasedSpeed; 
+            return TaskState.Success;
+        }
+        else
+        {
+            if(Agent.speed != DefaultSpeed)
+                Agent.speed = DefaultSpeed;
         }
         Agent.destination = currentDestination;
 
         // Debug.Log($"Patrol: Current position: {Agent.transform.position}, Destination: {currentDestination}");
         Vector3 t_agent = Agent.transform.position;
         float distance = Vector3.Distance(new Vector3(currentDestination.x, 0, currentDestination.z), new Vector3(t_agent.x, 0, t_agent.z));
-        if (distance < Agent.stoppingDistance)
+        if ((distance - Agent.stoppingDistance) < 0.1f)
         {
             CurrentDestinationID = (CurrentDestinationID + 1) % Destinations.Length;
             Debug.Log("Patrol: Reached destination, moving to the next one.");

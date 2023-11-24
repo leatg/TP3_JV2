@@ -113,6 +113,7 @@
      <Compile Include="Assets\Easy Character Movement\Scripts\Components\GroundDetection\GroundDetection.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
      <Compile Include="Assets\Scripts\Agents\AIBehaviour.cs" />
+     <Compile Include="Assets\EnemyAnimator.cs" />
      <Compile Include="Assets\Easy Character Movement\Walkthrough\5 - Crouching (FPS)\Scripts\MyCharacterController.cs" />
      <Compile Include="Assets\Scripts\Agents\TaskNode.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMouseLook.cs" />
@@ -281,6 +282,7 @@
      <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\license.txt" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts" />
      <Folder Include="Assets\Easy Character Movement\Scripts" />
+     <Folder Include="Assets\Ennemies" />
      <Folder Include="Library\PackageCache\com.unity.services.core@1.7.0\Runtime" />
      <Folder Include="Assets\Scenes\Map" />
      <None Include="Library\PackageCache\com.unity.probuilder@5.0.7\package.json" />
